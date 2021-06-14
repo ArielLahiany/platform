@@ -1,0 +1,21 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: exporter
+  namespace: monitoring
+  labels:
+    app: prometheus
+    component: exporter
+  annotations:
+    prometheus.io/scrape: "true"
+    prometheus.io/port: "9100"
+spec:
+  type: ClusterIP
+  selector:
+    app: prometheus
+    component: exporter
+  ports:
+    - name: exporter
+      protocol: TCP
+      port: 9100
+      targetPort: 9100

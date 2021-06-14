@@ -1,0 +1,53 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: redis
+  namespace: redis
+  labels:
+    app: redis
+    component: database
+spec:
+  strategy:
+    type: Recreate
+  replicas: 1
+  selector:
+    matchLabels:
+      app: redis
+      component: database
+  template:
+    metadata:
+      labels:
+        app: redis
+        component: database
+      annotations:
+        prometheus.io/scrape: "true"
+        prometheus.io/port: "9121"
+    spec:
+      containers:
+        - name: redis
+          image: redis:alpine
+          imagePullPolicy: IfNotPresent
+          ports:
+            - name: redis
+              containerPort: 6379
+          env:
+            - name: STORAGE_DIRECTORY
+              valueFrom:
+                configMapKeyRef:
+                  name: redis
+                  key: STORAGE_DIRECTORY
+          volumeMounts:
+            - name: config
+              mountPath: /etc/redis
+            - name: storage
+              mountPath: /var/lib/redis/storage
+      volumes:
+        - name: config
+          configMap:
+            name: redis
+            items:
+              - key: redis.conf
+                path: redis.conf
+        - name: storage
+          persistentVolumeClaim:
+            claimName: redis

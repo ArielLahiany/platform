@@ -1,0 +1,46 @@
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  name: exporter
+  namespace: monitoring
+  labels:
+    app: prometheus
+    component: exporter
+spec:
+  selector:
+    matchLabels:
+      app: prometheus
+      component: exporter
+  template:
+    metadata:
+      labels:
+        app: prometheus
+        component: exporter
+    spec:
+      containers:
+        - name: exporter
+          image: prom/node-exporter:latest
+          imagePullPolicy: Always
+          ports:
+            - name: exporter
+              protocol: TCP
+              containerPort: 9100
+          volumeMounts:
+            - name: proc
+              mountPath: /host/proc
+              readOnly: true
+            - name: sys
+              mountPath: /host/sys
+              readOnly: true
+          args:
+            - --path.sysfs=/host/sys
+            - --path.rootfs=/host/root
+      hostNetwork: true
+      hostPID: true
+      volumes:
+        - name: proc
+          hostPath:
+            path: /proc
+        - name: sys
+          hostPath:
+            path: /sys

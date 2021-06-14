@@ -1,0 +1,34 @@
+- name: Grafana server deployment playbook.
+  connection: local
+  gather_facts: false
+  hosts: localhost
+  tasks:
+    - name: Apply Monitoring namespace manifest to the cluster.
+      community.kubernetes.k8s:
+        state: present
+        src: /home/arik/kubernetes/platform/resources/manifests/namespaces/monitoring.yaml
+
+    - name: Apply Grafana server volume manifest to the cluster.
+      community.kubernetes.k8s:
+        state: present
+        src: /home/arik/kubernetes/platform/grafana/manifests/server/volume.yaml
+
+    - name: Apply Grafana server provisioning configmap manifest to the cluster.
+      community.kubernetes.k8s:
+        state: present
+        src: /home/arik/kubernetes/platform/grafana/manifests/server/provisioning.yaml
+
+    - name: Apply Grafana server dashboards configmap manifest to the cluster.
+      community.kubernetes.k8s:
+        state: present
+        src: /home/arik/kubernetes/platform/grafana/manifests/server/dashboards.yaml
+
+    - name: Apply Grafana server service manifest to the cluster.
+      community.kubernetes.k8s:
+        state: present
+        src: /home/arik/kubernetes/platform/grafana/manifests/server/service.yaml
+
+    - name: Apply Grafana server deployment manifest to the cluster.
+      community.kubernetes.k8s:
+        state: present
+        src: /home/arik/kubernetes/platform/grafana/manifests/server/deployment.yaml

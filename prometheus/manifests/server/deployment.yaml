@@ -1,0 +1,50 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: prometheus
+  namespace: monitoring
+  labels:
+    app: prometheus
+    component: server
+spec:
+  strategy:
+    type: Recreate
+  replicas: 1
+  selector:
+    matchLabels:
+      app: prometheus
+      component: server
+  template:
+    metadata:
+      labels:
+        app: prometheus
+        component: server
+    spec:
+      containers:
+        - name: prometheus
+          image: prom/prometheus:latest
+          imagePullPolicy: Always
+          ports:
+            - name: prometheus
+              protocol: TCP
+              containerPort: 9090
+          args: ["--config.file=/etc/config/prometheus.yaml"]
+          volumeMounts:
+            - name: config
+              mountPath: /etc/config
+              readOnly: true
+            - name: rules
+              mountPath: /etc/rules
+      volumes:
+        - name: config
+          configMap:
+            name: prometheus
+            items:
+              - key: prometheus.yaml
+                path: prometheus.yaml
+        - name: rules
+          configMap:
+            name: prometheus
+            items:
+              - key: alerts.rules
+                path: alerts.rules

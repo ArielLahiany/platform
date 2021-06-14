@@ -1,0 +1,50 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: alertmanager
+  namespace: monitoring
+  labels:
+    app: prometheus
+    component: alertmanager
+spec:
+  strategy:
+    type: Recreate
+  replicas: 1
+  selector:
+    matchLabels:
+      app: prometheus
+      component: alertmanager
+  template:
+    metadata:
+      labels:
+        app: prometheus
+        component: alertmanager
+    spec:
+      containers:
+        - name: alertmanager
+          image: prom/alertmanager:latest
+          imagePullPolicy: Always
+          ports:
+            - name: alertmanager
+              protocol: TCP
+              containerPort: 9093
+          # todo: need to get away for getting it inside the YAML config file, or from a secret.
+          env:
+            - name: SLACK_URL
+              value: https://hooks.slack.com/services/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
+#              valueFrom:
+#                secretKeyRef:
+#                  name: slack
+#                  key: URL
+          args: ["--config.file=/etc/config/alertmanager.yaml"]
+          volumeMounts:
+            - name: config
+              mountPath: /etc/config
+              readOnly: true
+      volumes:
+        - name: config
+          configMap:
+            name: alertmanager
+            items:
+              - key: alertmanager.yaml
+                path: alertmanager.yaml

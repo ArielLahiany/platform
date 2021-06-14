@@ -1,0 +1,19 @@
+- name: Prometeus Node Exporter deployment playbook.
+  connection: local
+  gather_facts: false
+  hosts: localhost
+  tasks:
+    - name: Apply Monitoring namespace manifest to the cluster.
+      community.kubernetes.k8s:
+        state: present
+        src: /home/arik/kubernetes/platform/resources/manifests/namespaces/monitoring.yaml
+
+    - name: Apply Prometeus Node Exporter service manifest to the cluster.
+      community.kubernetes.k8s:
+        state: present
+        src: /home/arik/kubernetes/platform/prometeus/manifests/exporter/service.yaml
+
+    - name: Apply Prometeus Node Exporter daemon manifest to the cluster.
+      community.kubernetes.k8s:
+        state: present
+        src: /home/arik/kubernetes/platform/prometeus/manifests/exporter/daemon.yaml

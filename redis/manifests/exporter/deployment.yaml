@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: exporter
+  namespace: redis
+  labels:
+    app: redis
+    component: exporter
+spec:
+  strategy:
+    type: Recreate
+  replicas: 1
+  selector:
+    matchLabels:
+      app: redis
+      component: exporter
+  template:
+    metadata:
+      labels:
+        app: redis
+        component: exporter
+    spec:
+      containers:
+        - name: exporter
+          image: oliver006/redis_exporter:latest
+          imagePullPolicy: Always
+          ports:
+            - name: exporter
+              protocol: TCP
+              containerPort: 9121
+          args:
+            - --redis.addr=redis://redis:6379

@@ -1,0 +1,68 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: grafana
+  namespace: monitoring
+  labels:
+    app: grafana
+    component: server
+spec:
+  strategy:
+    type: Recreate
+  replicas: 1
+  selector:
+    matchLabels:
+      app: grafana
+      component: server
+  template:
+    metadata:
+      labels:
+        app: grafana
+        component: server
+    spec:
+      containers:
+        - name: grafana
+          image: grafana/grafana:latest
+          imagePullPolicy: Always
+          ports:
+            - name: grafana
+              protocol: TCP
+              containerPort: 3000
+          volumeMounts:
+            - name: storage
+              mountPath: /var/lib/grafana
+            - name: dashboards
+              mountPath: /var/lib/grafana/dashboards
+              readOnly: false
+            - name: dashboards-provisioning
+              mountPath: /etc/grafana/provisioning/dashboards
+              readOnly: false
+            - name: datasources-provisioning
+              mountPath: /etc/grafana/provisioning/datasources
+              readOnly: false
+      volumes:
+        - name: storage
+          persistentVolumeClaim:
+            claimName: grafana
+        - name: dashboards
+          configMap:
+            name: dashboards
+            items:
+              - key: node.json
+                path: node.json
+              - key: postgres.json
+                path: postgres.json
+              - key: redis.json
+                path: redis.json
+        - name: dashboards-provisioning
+          configMap:
+            name: provisioning
+            items:
+              - key: dashboards.yaml
+                path: dashboards.yaml
+        - name: datasources-provisioning
+          configMap:
+            name: provisioning
+            items:
+              - key: datasources.yaml
+                path: datasources.yaml

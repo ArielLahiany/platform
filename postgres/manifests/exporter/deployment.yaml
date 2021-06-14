@@ -1,0 +1,46 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: exporter
+  namespace: postgres
+  labels:
+    app: postgres
+    component: exporter
+spec:
+  strategy:
+    type: Recreate
+  replicas: 1
+  selector:
+    matchLabels:
+      app: postgres
+      component: exporter
+  template:
+    metadata:
+      labels:
+        app: postgres
+        component: exporter
+    spec:
+      containers:
+        - name: exporter
+          image: wrouesnel/postgres_exporter:latest
+          imagePullPolicy: Always
+          ports:
+            - name: exporter
+              protocol: TCP
+              containerPort: 9187
+          env:
+            - name: DATA_SOURCE_URI
+              valueFrom:
+                secretKeyRef:
+                  name: exporter
+                  key: DATA_SOURCE_URI
+            - name: DATA_SOURCE_USER
+              valueFrom:
+                secretKeyRef:
+                  name: postgres
+                  key: DATA_SOURCE_USER
+            - name: DATA_SOURCE_PASS
+              valueFrom:
+                secretKeyRef:
+                  name: postgres
+                  key: DATA_SOURCE_PASS

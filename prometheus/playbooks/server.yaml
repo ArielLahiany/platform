@@ -1,0 +1,24 @@
+- name: Prometeus server deployment playbook.
+  connection: local
+  gather_facts: false
+  hosts: localhost
+  tasks:
+    - name: Apply Monitoring namespace manifest to the cluster.
+      community.kubernetes.k8s:
+        state: present
+        src: /home/arik/kubernetes/platform/resources/manifests/namespaces/monitoring.yaml
+
+    - name: Apply Prometeus server configmap manifest to the cluster.
+      community.kubernetes.k8s:
+        state: present
+        src: /home/arik/kubernetes/platform/prometeus/manifests/server/config.yaml
+
+    - name: Apply Prometeus server service manifest to the cluster.
+      community.kubernetes.k8s:
+        state: present
+        src: /home/arik/kubernetes/platform/prometeus/manifests/server/service.yaml
+
+    - name: Apply Prometeus server deployment manifest to the cluster.
+      community.kubernetes.k8s:
+        state: present
+        src: /home/arik/kubernetes/platform/prometeus/manifests/server/deployment.yaml

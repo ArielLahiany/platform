@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: redis
+  namespace: redis
+data:
+  # Base storage directory for volume mounting.
+  STORAGE_DIRECTORY: /var/lib/redis/storage
+
+  # The official recommend configuration file for Redis.
+  redis.conf: |

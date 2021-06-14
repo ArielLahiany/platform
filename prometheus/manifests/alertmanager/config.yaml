@@ -1,0 +1,36 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: alertmanager
+  namespace: monitoring
+data:
+  # Prometheus Alertmanager base config file.
+  alertmanager.yaml: |
+    global:
+      resolve_timeout: 5m
+
+    templates:
+      - "/etc/alertmanager/templates/*.tmpl"
+
+    route:
+      group_by: ["alertname", "cluster", "service"]
+      group_wait: 10s
+      group_interval: 10s
+      repeat_interval: 10m
+      receiver: "slack"
+
+    receivers:
+    - name: "slack"
+      slack_configs:
+      - send_resolved: true
+        api_url: "https://hooks.slack.com/services/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"
+        channel: "#marionette"
+        title: "{{ range .Alerts }}{{ .Annotations.summary }}\n{{ end }}"
+        text: "{{ range .Alerts }}{{ .Annotations.description }}\n{{ end }}"
+
+    inhibit_rules:
+      - source_match:
+          severity: "critical"
+        target_match:
+          severity: "warning"
+        equal: ["cluseter", "service"]

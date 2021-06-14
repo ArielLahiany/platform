@@ -1,0 +1,24 @@
+- name: Prometeus Alertmanager deployment playbook.
+  connection: local
+  gather_facts: false
+  hosts: localhost
+  tasks:
+    - name: Apply Monitoring namespace manifest to the cluster.
+      community.kubernetes.k8s:
+        state: present
+        src: /home/arik/kubernetes/platform/resources/manifests/namespaces/monitoring.yaml
+
+    - name: Apply Prometeus Alertmanager configmap manifest to the cluster.
+      community.kubernetes.k8s:
+        state: present
+        src: /home/arik/kubernetes/platform/prometeus/manifests/alertmanager/config.yaml
+
+    - name: Apply Prometeus Alertmanager service manifest to the cluster.
+      community.kubernetes.k8s:
+        state: present
+        src: /home/arik/kubernetes/platform/prometeus/manifests/alertmanager/service.yaml
+
+    - name: Apply Prometeus Alertmanager deployment manifest to the cluster.
+      community.kubernetes.k8s:
+        state: present
+        src: /home/arik/kubernetes/platform/prometeus/manifests/alertmanager/deployment.yaml
