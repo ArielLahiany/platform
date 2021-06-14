@@ -1,1 +1,7 @@
-# todo: need to control all the other playbooks and to be a main entry-point to the project.
+- name: Saleor Kubernetes Platform deployment playbook.
+  connection: local
+  gather_facts: false
+  hosts: localhost
+  tasks:
+    - name: Include Django server playbooks.
+      include: /home/arik/kubernetes/platform/saleor/playbooks/django.yaml
