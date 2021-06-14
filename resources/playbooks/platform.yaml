@@ -5,7 +5,7 @@
   tasks:
     - name: Include Django server playbooks.
       include: /home/arik/kubernetes/platform/saleor/playbooks/django.yaml
-
+# todo: need to run all the Django commends from the Ansible playbook.
 #    - name: Include Beat scheduler playbooks.
 #      include: /home/arik/kubernetes/platform/saleor/playbooks/beat.yaml
 #
