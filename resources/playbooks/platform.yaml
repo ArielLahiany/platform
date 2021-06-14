@@ -5,3 +5,9 @@
   tasks:
     - name: Include Django server playbooks.
       include: /home/arik/kubernetes/platform/saleor/playbooks/django.yaml
+
+#    - name: Include Beat scheduler playbooks.
+#      include: /home/arik/kubernetes/platform/saleor/playbooks/beat.yaml
+#
+#    - name: Include Celery workers playbooks.
+#      include: /home/arik/kubernetes/platform/saleor/playbooks/celery.yaml
