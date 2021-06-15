@@ -3,11 +3,43 @@
   gather_facts: false
   hosts: localhost
   tasks:
+#    - name: Testing Exec.
+#      community.kubernetes.k8s_exec:
+#        namespace: saleor
+#        pod: django
+#        command: echo "ariel lahiany" > dragon.txt
+
+#    - name: Get the pods in the specific namespace
+#      community.kubernetes.k8s_info:
+#        kind: Pod
+#        namespace: saleor
+#        label_selectors:
+#          - component = server
+#      register: pod_list
+#
+#    - name: Print pod names
+#      debug:
+#         msg: "pod_list: {{ pod_list | json_query('resources[*].status.podIP')  }} "
+#
+#    - set_fact:
+#        pod_names: "{{pod_list|json_query('resources[*].metadata.name')}}"
+#
+#    - name: Testing Exex.
+#      community.kubernetes.k8s_exec:
+#        namespace: saleor
+#        pod: "{{ item.metadata.name }}"
+#        command: echo "I am \"Finding\" difficult to write this to file" > dragon.txt echo
+#      with_items: "{{ pod_list.resources }}"
+#      register: exec
+#      loop_control:
+#        label: "{{ item.metadata.name }}"
+    # todo: need to run all the Django commends from the Ansible playbook.
+    # todo: need to share volume with Django, Celery and Beat for media.
     - name: Include Django server playbooks.
       include: /home/arik/kubernetes/platform/saleor/playbooks/django.yaml
-# todo: need to run all the Django commends from the Ansible playbook.
-#    - name: Include Beat scheduler playbooks.
-#      include: /home/arik/kubernetes/platform/saleor/playbooks/beat.yaml
-#
-#    - name: Include Celery workers playbooks.
-#      include: /home/arik/kubernetes/platform/saleor/playbooks/celery.yaml
+
+    - name: Include Beat scheduler playbooks.
+      include: /home/arik/kubernetes/platform/saleor/playbooks/beat.yaml
+
+    - name: Include Celery workers playbooks.
+      include: /home/arik/kubernetes/platform/saleor/playbooks/celery.yaml
