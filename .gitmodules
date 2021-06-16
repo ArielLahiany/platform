@@ -1,3 +1,6 @@
 [submodule "saleor"]
 	path = saleor
 	url = https://github.com/ArielLahiany/saleor.git
+[submodule "dashboard"]
+	path = dashboard
+	url = http://github.com/ArielLahiany/dashboard.git

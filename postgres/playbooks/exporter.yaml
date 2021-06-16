@@ -1,29 +1,24 @@
-- name: Postgres database exporter deployment playbook.
-  connection: local
-  gather_facts: false
-  hosts: localhost
-  tasks:
-    - name: Apply Postgres namespace manifest to the cluster.
-      community.kubernetes.k8s:
-        state: present
-        src: /home/arik/kubernetes/platform/resources/manifests/namespaces/postgres.yaml
+- name: Apply Postgres namespace manifest to the cluster.
+  community.kubernetes.k8s:
+    state: present
+    src: /home/arik/kubernetes/platform/resources/manifests/namespaces/postgres.yaml
 
-    - name: Apply Postgres secret manifest to the cluster.
-      community.kubernetes.k8s:
-        state: present
-        src: /home/arik/kubernetes/platform/resources/manifests/secrets/postgres.yaml
+- name: Apply Postgres secret manifest to the cluster.
+  community.kubernetes.k8s:
+    state: present
+    src: /home/arik/kubernetes/platform/resources/manifests/secrets/postgres.yaml
 
-    - name: Apply Postgres database exporter configmap manifest to the cluster.
-      community.kubernetes.k8s:
-        state: present
-        src: /home/arik/kubernetes/platform/postgres/manifests/exporter/config.yaml
+- name: Apply Postgres database exporter configmap manifest to the cluster.
+  community.kubernetes.k8s:
+    state: present
+    src: /home/arik/kubernetes/platform/postgres/manifests/exporter/config.yaml
 
-    - name: Apply Postgres database exporter service manifest to the cluster.
-      community.kubernetes.k8s:
-        state: present
-        src: /home/arik/kubernetes/platform/postgres/manifests/exporter/service.yaml
+- name: Apply Postgres database exporter service manifest to the cluster.
+  community.kubernetes.k8s:
+    state: present
+    src: /home/arik/kubernetes/platform/postgres/manifests/exporter/service.yaml
 
-    - name: Apply Postgres database exporter deployment manifest to the cluster.
-      community.kubernetes.k8s:
-        state: present
-        src: /home/arik/kubernetes/platform/postgres/manifests/exporter/deployment.yaml
+- name: Apply Postgres database exporter deployment manifest to the cluster.
+  community.kubernetes.k8s:
+    state: present
+    src: /home/arik/kubernetes/platform/postgres/manifests/exporter/deployment.yaml

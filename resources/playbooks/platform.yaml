@@ -33,13 +33,19 @@
 #      register: exec
 #      loop_control:
 #        label: "{{ item.metadata.name }}"
+    # todo: try to make multi-layer Dockerfile for the Dashboard and Storefront applications.
     # todo: need to run all the Django commends from the Ansible playbook.
     # todo: need to share volume with Django, Celery and Beat for media.
+    # todo: need to change the path to relative.
+    # todo: need to change the Dockerfile for Saleor, so we will be able to use storage volume.
     - name: Include Django server playbooks.
       include: /home/arik/kubernetes/platform/saleor/playbooks/django.yaml
+#
+#    - name: Include Beat scheduler playbooks.
+#      include: /home/arik/kubernetes/platform/saleor/playbooks/beat.yaml
+#
+#    - name: Include Celery workers playbooks.
+#      include: /home/arik/kubernetes/platform/saleor/playbooks/celery.yaml
 
-    - name: Include Beat scheduler playbooks.
-      include: /home/arik/kubernetes/platform/saleor/playbooks/beat.yaml
-
-    - name: Include Celery workers playbooks.
-      include: /home/arik/kubernetes/platform/saleor/playbooks/celery.yaml
+#    - name: Include Saleor Dashboard playbooks.
+#      include: /home/arik/kubernetes/platform/dashboard/playbooks/dashboard.yaml

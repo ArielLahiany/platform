@@ -1,29 +1,24 @@
-- name: Postgres database deployment playbook.
-  connection: local
-  gather_facts: false
-  hosts: localhost
-  tasks:
-    - name: Apply Postgres database namespace manifest to the cluster.
-      community.kubernetes.k8s:
-        state: present
-        src: /home/arik/kubernetes/platform/resources/manifests/namespaces/postgres.yaml
+- name: Apply Postgres database namespace manifest to the cluster.
+  community.kubernetes.k8s:
+    state: present
+    src: /home/arik/kubernetes/platform/resources/manifests/namespaces/postgres.yaml
 
-    - name: Apply Postgres database secret manifest to the cluster.
-      community.kubernetes.k8s:
-        state: present
-        src: /home/arik/kubernetes/platform/resources/manifests/secrets/postgres.yaml
+- name: Apply Postgres database secret manifest to the cluster.
+  community.kubernetes.k8s:
+    state: present
+    src: /home/arik/kubernetes/platform/resources/manifests/secrets/postgres.yaml
 
-    - name: Apply Postgres database volume manifest to the cluster.
-      community.kubernetes.k8s:
-        state: present
-        src: /home/arik/kubernetes/platform/postgres/manifests/database/volume.yaml
+- name: Apply Postgres database volume manifest to the cluster.
+  community.kubernetes.k8s:
+    state: present
+    src: /home/arik/kubernetes/platform/postgres/manifests/database/volume.yaml
 
-    - name: Apply Postgres database service manifest to the cluster.
-      community.kubernetes.k8s:
-        state: present
-        src: /home/arik/kubernetes/platform/postgres/manifests/database/service.yaml
+- name: Apply Postgres database service manifest to the cluster.
+  community.kubernetes.k8s:
+    state: present
+    src: /home/arik/kubernetes/platform/postgres/manifests/database/service.yaml
 
-    - name: Apply Postgres database deployment manifest to the cluster.
-      community.kubernetes.k8s:
-        state: present
-        src: /home/arik/kubernetes/platform/postgres/manifests/database/deployment.yaml
+- name: Apply Postgres database deployment manifest to the cluster.
+  community.kubernetes.k8s:
+    state: present
+    src: /home/arik/kubernetes/platform/postgres/manifests/database/deployment.yaml
