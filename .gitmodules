@@ -4,3 +4,6 @@
 [submodule "dashboard"]
 	path = dashboard
 	url = http://github.com/ArielLahiany/dashboard.git
+[submodule "storefront"]
+	path = storefront
+	url = https://github.com/ArielLahiany/storefront.git

@@ -4,11 +4,12 @@
   hosts: localhost
   tasks:
     # todo: try to make multi-layer Dockerfile for the Dashboard and Storefront applications.
-    # todo: need to share volume with Django, Celery and Beat for media.
+    # todo: need to share volume with Django, Celery and Beat for media. Can't Share the PDF files without it!
     # todo: need to change the path to relative.
     # todo: improve Dockerfile for the Storefront and Dashboard applications, and finish it with the cert manager.
     # todo: create Ingress object for Django, and use Gunicorn as the server.
-
+    # todo: give root user a password in the Dockerfiles so we will be able to change into that.
+    # todo: consider changing the populatedb function for the host to be correct, according to the address of the Django server.
 #    - name: Include Prometheus server playbooks.
 #      include: /home/arik/kubernetes/platform/prometheus/playbooks/server.yaml
 #

@@ -41,7 +41,7 @@ spec:
                   key: POSTGRES_PASSWORD
           volumeMounts:
             - name: storage
-              mountPath: /var/lib/postgresql
+              mountPath: /var/lib/postgresql/data
       volumes:
         - name: storage
           persistentVolumeClaim:
