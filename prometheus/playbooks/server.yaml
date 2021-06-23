@@ -3,17 +3,17 @@
     state: present
     src: /home/arik/kubernetes/platform/resources/manifests/namespaces/monitoring.yaml
 
-- name: Apply Prometeus server configmap manifest to the cluster.
+- name: Apply Prometheus server configmap manifest to the cluster.
   community.kubernetes.k8s:
     state: present
-    src: /home/arik/kubernetes/platform/prometeus/manifests/server/config.yaml
+    src: /home/arik/kubernetes/platform/prometheus/manifests/server/config.yaml
 
-- name: Apply Prometeus server service manifest to the cluster.
+- name: Apply Prometheus server service manifest to the cluster.
   community.kubernetes.k8s:
     state: present
-    src: /home/arik/kubernetes/platform/prometeus/manifests/server/service.yaml
+    src: /home/arik/kubernetes/platform/prometheus/manifests/server/service.yaml
 
-- name: Apply Prometeus server deployment manifest to the cluster.
+- name: Apply Prometheus server deployment manifest to the cluster.
   community.kubernetes.k8s:
     state: present
-    src: /home/arik/kubernetes/platform/prometeus/manifests/server/deployment.yaml
+    src: /home/arik/kubernetes/platform/prometheus/manifests/server/deployment.yaml
