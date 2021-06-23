@@ -33,7 +33,7 @@ data:
       - target_label: __address__
         replacement: kubernetes.default.svc:443
 
-    - job_name: "Nodes Exportes"
+    - job_name: "Nodes Exporters"
       scrape_interval: 10s
       kubernetes_sd_configs:
       - role: endpoints
@@ -45,7 +45,19 @@ data:
         regex: "exporter"
         action: keep
 
-    - job_name: "Postgres Exportes"
+    - job_name: "Celery Exporters"
+      scrape_interval: 10s
+      static_configs:
+        - targets: ["exporter.saleor:9540"]
+      relabel_configs:
+      - source_labels: [__meta_kubernetes_namespace]
+        action: replace
+        target_label: "Namespace"
+      - source_labels: [__meta_kubernetes_pod_name]
+        action: replace
+        target_label: "Name"
+
+    - job_name: "Postgres Exporters"
       scrape_interval: 10s
       static_configs:
         - targets: ["exporter.postgres:9187"]
@@ -57,7 +69,7 @@ data:
         action: replace
         target_label: "Name"
 
-    - job_name: "Redis Exportes"
+    - job_name: "Redis Exporters"
       scrape_interval: 10s
       static_configs:
         - targets: ["exporter.redis:9121"]
