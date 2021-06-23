@@ -6,10 +6,10 @@
 
 <div id="description">
     <p align="center">
-        An open source ERP system on a 
+        Customer-centric e-commerce on a 
         <b>modern stack.</b>
         <br>
-        Headless, GraphQl first <b>Enterprise Resource Planning</b> experience.
+        Headless, GraphQl first <b>e-commerce platform</b> delivering ultra-fast, dynamic, personalized shopping experiences.
     </p>
 </div>
 
