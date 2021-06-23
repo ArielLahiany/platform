@@ -1,76 +1,75 @@
 resources:
   # Namespaces.
-  - resources/manifests/namespaces/monitoring.yaml
-  - resources/manifests/namespaces/postgres.yaml
-  - resources/manifests/namespaces/redis.yaml
+#  - resources/manifests/namespaces/monitoring.yaml
+#  - resources/manifests/namespaces/postgres.yaml
+#  - resources/manifests/namespaces/redis.yaml
   - resources/manifests/namespaces/saleor.yaml
 
   # Secrets.
-  - resources/manifests/secrets/postgres.yaml
+#  - resources/manifests/secrets/postgres.yaml
 
   # Ingresses.
 #  - resources/manifests/ingresses/dashboard.yaml
 #  - resources/manifests/ingresses/django.yaml
 
   # Grafana server.
-  - grafana/server/volume.yaml
-  - grafana/server/provisioning.yaml
-  - grafana/server/dashboards.yaml
-  - grafana/server/service.yaml
-  - grafana/server/deployment.yaml
-
-  # Postgres database.
-  - postgres/database/volume.yaml
-  - postgres/database/service.yaml
-  - postgres/database/deployment.yaml
-
-  # Postgres exporter.
-  - postgres/exporter/secret.yaml
-  - postgres/exporter/service.yaml
-  - postgres/exporter/deployment.yaml
-
-  # Prometheus server.
-  - prometheus/server/config.yaml
-  - prometheus/server/service.yaml
-  - prometheus/server/deployment.yaml
-
-  # Prometheus Node Exporter.
-  - prometheus/exporter/service.yaml
-  - prometheus/exporter/daemon.yaml
-
-  # Prometheus Alertmanager.
-  - prometheus/alertmanager/config.yaml
-  - prometheus/alertmanager/service.yaml
-  - prometheus/alertmanager/deployment.yaml
-
-  # Redis database.
-  - redis/database/volume.yaml
-  - redis/database/config.yaml
-  - redis/database/service.yaml
-  - redis/database/deployment.yaml
-
-  # Redis exporter.
-  - redis/exporter/service.yaml
-  - redis/exporter/deployment.yaml
-
-  # Saleor Django server.
-  - saleor/manifests/django/secret.yaml
-  - saleor/manifests/django/config.yaml
-  - saleor/manifests/django/service.yaml
-  - saleor/manifests/django/deployment.yaml
-
-  # Saleor Celery worker.
-  - saleor/manifests/celery/deployment.yaml
-  - saleor/manifests/celery/scale.yaml
-
-  # Saleor Beat scheduler.
-  - saleor/manifests/beat/deployment.yaml
-
-  # Saleor Celery Exporter.
-  - saleor/manifests/exporter/service.yaml
-  - saleor/manifests/exporter/deployment.yaml
-
-  # Saleor Dashboard.
-  - dashboard/manifests/dashboard/config.yaml
-  - dashboard/manifests/dashboard/service.yaml
-  - dashboard/manifests/dashboard/deployment.yaml
+#  - grafana/manifests/server/volume.yaml
+#  - grafana/manifests/server/provisioning.yaml
+#  - grafana/manifests/server/dashboards.yaml
+#  - grafana/manifests/server/service.yaml
+#  - grafana/manifests/server/deployment.yaml
+#
+#  # Postgres database.
+#  - postgres/manifests/database/volume.yaml
+#  - postgres/manifests/database/service.yaml
+#  - postgres/manifests/database/deployment.yaml
+#
+#  # Postgres exporter.
+#  - postgres/manifests/exporter/service.yaml
+#  - postgres/manifests/exporter/deployment.yaml
+#
+#  # Prometheus server.
+#  - prometheus/manifests/server/config.yaml
+#  - prometheus/manifests/server/service.yaml
+#  - prometheus/manifests/server/deployment.yaml
+#
+#  # Prometheus Node Exporter.
+#  - prometheus/manifests/exporter/service.yaml
+#  - prometheus/manifests/exporter/daemon.yaml
+#
+#  # Prometheus Alertmanager.
+#  - prometheus/manifests/alertmanager/config.yaml
+#  - prometheus/manifests/alertmanager/service.yaml
+#  - prometheus/manifests/alertmanager/deployment.yaml
+#
+#  # Redis database.
+#  - redis/manifests/database/volume.yaml
+#  - redis/manifests/database/config.yaml
+#  - redis/manifests/database/service.yaml
+#  - redis/manifests/database/deployment.yaml
+#
+#  # Redis exporter.
+#  - redis/manifests/exporter/service.yaml
+#  - redis/manifests/exporter/deployment.yaml
+#
+#  # Saleor Django server.
+#  - saleor/manifests/django/secret.yaml
+#  - saleor/manifests/django/config.yaml
+#  - saleor/manifests/django/service.yaml
+#  - saleor/manifests/django/deployment.yaml
+#
+#  # Saleor Celery worker.
+#  - saleor/manifests/celery/deployment.yaml
+#  - saleor/manifests/celery/scale.yaml
+#
+#  # Saleor Beat scheduler.
+#  - saleor/manifests/beat/deployment.yaml
+#
+#  # Saleor Celery Exporter.
+#  - saleor/manifests/exporter/service.yaml
+#  - saleor/manifests/exporter/deployment.yaml
+#
+#  # Saleor Dashboard.
+#  - dashboard/manifests/dashboard/config.yaml
+#  - dashboard/manifests/dashboard/service.yaml
+#  - dashboard/manifests/dashboard/deployment.yaml

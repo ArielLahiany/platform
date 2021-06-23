@@ -141,6 +141,3 @@ cython_debug/
 # PyCharm
 .idea
 /idea/
-
-# Kusomization
-kustomization.yaml
