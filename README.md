@@ -177,13 +177,13 @@
     <ol>
         <li id="clone">
             Clone this repository, including the submodules by running:
-                ```
-                    git clone --recurse-submodules https://github.com/ArielLahiany/platform.git 
-                ```
+                <br>
+                <code>
+                    $ git clone --recurse-submodules https://github.com/ArielLahiany/platform.git 
+                </code>
         </li>
     </ol>
 </div>
-
 <div id="tasks">
     <h2>
         Tasks
