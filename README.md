@@ -17,6 +17,28 @@
     <h2>
         Table of Contents
     </h2>
+    <ul>
+        <li id="stack">
+            <b>
+                <a href="#stack">Stack</a>
+            </b>
+        </li>
+        <li id="installation">
+            <b>
+                <a href="#installation">Installation</a>
+            </b>
+        </li>
+        <li id="tasks">
+            <b>
+                <a href="#tasks">tasks</a>
+            </b>
+        </li>
+        <li id="inspiration">
+            <b>
+                <a href="#inspiration">Inspiration</a>
+            </b>
+        </li>
+    </ul>
 </div>
 
 <div id="stack">
@@ -94,14 +116,6 @@
             </b>
             <p>
                 A modular, high performance, headless e-commerce platform built with Python, GraphQL, Django, and React. 
-            </p>
-        </li>
-        <li id="django-celery-beat">
-            <b>
-                <a href="https://github.com/celery/django-celery-beat">Django-Celery-Beat</a>
-            </b>
-            <p>
-                Celery Periodic Tasks backed by the Django ORM 
             </p>
         </li>
     </ul>
