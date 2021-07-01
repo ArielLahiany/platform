@@ -174,6 +174,14 @@
     <h2>
         Installation
     </h2>
+    <ol>
+        <li id="clone">
+            Clone this repository, including the submodules by running:
+                ```
+                    git clone --recurse-submodules https://github.com/ArielLahiany/platform.git 
+                ```
+        </li>
+    </ol>
 </div>
 
 <div id="tasks">
@@ -199,5 +207,13 @@
                 A modular, high performance, headless e-commerce platform built with Python, GraphQL, Django, and React. 
             </p>
         </li>
+        <li id="gimbal">
+            <b>
+                <a href="https://github.com/projectcontour/gimbal">Gimbal</a>
+            </b>
+            <p>
+                An ingress load balancing platform capable of routing traffic to multiple Kubernetes and OpenStack clusters.
+                Built by Heptio in partnership with Actapio. 
+            </p>
     </ul>
 </div>
