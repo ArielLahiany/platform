@@ -46,20 +46,48 @@
         Stack
     </h2>
         <ul>
-        <li id="docker">
+        <li id="django">
             <b>
-                <a href="https://github.com/mirumee/saleor">Docker</a>
+                <a href="https://www.djangoproject.com/">Django</a>
             </b>
             <p>
-                A modular, high performance, headless e-commerce platform built with Python, GraphQL, Django, and React. 
+                An high-level Python Web framework that encourages rapid development and clean,
+                pragmatic design.
+            </p>
+        </li>
+        <li id="react">
+            <b>
+                <a href="https://reactjs.org/">React</a>
+            </b>
+            <p>
+                A JavaScript library for building user interfaces, by Facebook.
+            </p>
+        </li>
+        <li id="graphql">
+            <b>
+                <a href="https://graphql.org/">GraphQL</a>
+            </b>
+            <p>
+                GraphQL is a query language for APIs,
+                and a runtime for fulfilling those queries with your existing data.
+            </p>
+        </li>
+        <li id="docker">
+            <b>
+                <a href="https://www.docker.com/">Docker</a>
+            </b>
+            <p>
+                An open source software platform to create,
+                deploy and manage virtualized application containers on a common operating systems. 
             </p>
         </li>
         <li id="kubernetes">
             <b>
-                <a href="https://github.com/celery/django-celery-beat">Kubernetes</a>
+                <a href="https://kubernetes.io/">Kubernetes</a>
             </b>
             <p>
-                Celery Periodic Tasks backed by the Django ORM 
+                an open-source system for automating deployment,
+                scaling, and management of containerized applications.
             </p>
         </li>
         <li id="integration">
