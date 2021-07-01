@@ -191,6 +191,12 @@ Some of the images used in that project are made for ARM64 architecture only.
 </li>
 <li>
 <b>
+Docker Engine:
+</b>
+Installation of the latest Docker Engine version.
+</li>
+<li>
+<b>
 Kubernetes Cluster:
 </b>
 It can be a remote or a local cluster, running by microk8s, minikube, desktop-docker, or any eqvivalent.
