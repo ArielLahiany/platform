@@ -179,6 +179,42 @@ dashboards monitoring.
 <h2>
 Requirements
 </h2>
+<ul>
+<li>
+Mandatory
+<ul>
+<li>
+<b>
+ARM64 Machine:
+</b>
+Some of the images used in that project are made for ARM64 architecture only.
+</li>
+<li>
+<b>
+Kubernetes Cluster:
+</b>
+It can be a remote or a local cluster, running by microk8s, minikube, desktop-docker, or any eqvivalent.
+</li>
+</ul>
+</li>
+<li>
+Optional
+<ul>
+<li>
+<b>
+Ansible:
+</b>
+A popular IT automation engine that automates tasks.
+</li>
+<li>
+<b>
+Terraform:
+</b>
+An open-source infrastructure as code software tool that enables you to safely and predictably create, change, and improve infrastructure.
+</li>
+</ul>
+</li>
+</ul>
 </div>
 
 <div id="installation">
@@ -461,6 +497,32 @@ admin
 <h2>
 Tasks
 </h2>
+<ul>
+<li>
+<b>
+Terraform
+</b>
+<p>
+Fix login issues with Google Kubernetes Engine, clone the entire project and deploy it on the remote cluster automatically.
+</p>
+</li>
+<li>
+<b>
+GitHub Actions
+</b>
+<p>
+Finish CD pipelines for deployments, by integration with the GKE cluster.
+</p>
+</li>
+<li>
+<b>
+Jenkins
+</b>
+<p>
+Finish Jenkins files for building and deployments by agents which running by on-demand Kubernetes pods. 
+</p>
+</li>
+</ul>
 </div>
 
 <div id="inspiration">
