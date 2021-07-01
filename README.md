@@ -528,6 +528,14 @@ Jenkins
 Finish Jenkins files for building and deployments by agents which running by on-demand Kubernetes pods. 
 </p>
 </li>
+<li>
+<b>
+High Availability
+</b>
+<p>
+Move Redis, Postgres and other services to High Availability configuration.
+</p>
+</li>
 </ul>
 </div>
 
