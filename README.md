@@ -155,7 +155,16 @@
                 <a href="https://github.com/celery/django-celery-beat">Monitoring</a>
             </b>
             <p>
-                Monitoring
+                Visualize the performance of the Kubernetes Cluster infrastructures.
+                By
+                <b>
+                    <a href="https://prometheus.io/">Prometheus</a>
+                </b>
+                monitoring system, and time series database integration with
+                <b>
+                    <a href="https://grafana.com/">Grafana</a>
+                </b>
+                dashboards monitoring.
             </p>
         </li>
     </ul>
