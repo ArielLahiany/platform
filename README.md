@@ -51,7 +51,11 @@
                 <a href="https://www.djangoproject.com/">Django</a>
             </b>
             <p>
-                An high-level Python Web framework that encourages rapid development and clean,
+                An high-level
+                <b>
+                    <a href="https://www.python.org/">Python</a>
+                </b>
+                Web framework that encourages rapid development and clean,
                 pragmatic design.
             </p>
         </li>
@@ -60,7 +64,14 @@
                 <a href="https://reactjs.org/">React</a>
             </b>
             <p>
-                A JavaScript library for building user interfaces, by Facebook.
+                A 
+                <b>
+                    JavaScript
+                </b>
+                library for building user interfaces, by 
+                <b>
+                    Facebook.
+                </b>
             </p>
         </li>
         <li id="graphql">
@@ -68,7 +79,10 @@
                 <a href="https://graphql.org/">GraphQL</a>
             </b>
             <p>
-                GraphQL is a query language for APIs,
+                GraphQL is a query language for 
+                <b>
+                    APIs
+                </b>
                 and a runtime for fulfilling those queries with your existing data.
             </p>
         </li>
@@ -78,7 +92,11 @@
             </b>
             <p>
                 An open source software platform to create,
-                deploy and manage virtualized application containers on a common operating systems. 
+                deploy and manage virtualized application
+                <b>
+                    containers
+                </b>
+                on a common operating systems. 
             </p>
         </li>
         <li id="kubernetes">
@@ -86,24 +104,50 @@
                 <a href="https://kubernetes.io/">Kubernetes</a>
             </b>
             <p>
-                an open-source system for automating deployment,
+                an open-source 
+                <b>
+                    orchestration
+                </b>
+                tool for automating deployment,
                 scaling, and management of containerized applications.
             </p>
         </li>
         <li id="integration">
             <b>
-                <a href="https://github.com/celery/django-celery-beat">Continuous Integration</a>
+                <a href="https://en.wikipedia.org/wiki/Continuous_integration">Continuous Integration</a>
             </b>
             <p>
-                Continuous Integration
+                <b>
+                    <a href="https://github.com/features/actions">GitHub Actions</a>
+                </b>
+                pipelines for 
+                <b>
+                    Continuous Integration
+                </b>
+                by running pre-coded tests, building, and pushing into a private
+                <b>
+                    <a href="https://hub.docker.com/">DockerHub</a>
+                </b>
+                repository.
             </p>
         </li>
         <li id="deployment">
             <b>
-                <a href="https://github.com/celery/django-celery-beat">Continuous Deployment</a>
+                <a href="https://en.wikipedia.org/wiki/Continuous_deployment">Continuous Deployment</a>
             </b>
             <p>
-                Continuous Deployment
+                <b>
+                    <a href="https://github.com/features/actions">GitHub Actions</a>
+                </b>
+                pipelines for
+                <b>
+                    Continuous Deployment
+                </b>
+                    by automatic deployment into a 
+                <b>
+                    <a href="https://cloud.google.com/kubernetes-engine/docs/">Google Kubernetes Engine</a>
+                </b>
+                hosted cluster.
             </p>
         </li>
         <li id="monitoring">
