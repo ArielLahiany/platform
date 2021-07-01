@@ -4,10 +4,10 @@
   hosts: localhost
   tasks:
     # todo: try to make multi-layer Dockerfile for the Storefront application.
-    # todo: need to share volume with Django, Celery and Beat for media. Can't Share the PDF files without it!
+    # todo: need to share volume with Django, Celery and Beat for media.
+    # todo: Ingress need serve static files.
     # todo: need to change the path to relative.
     # todo: Cert manager.
-    # todo: create Ingress object for Django, and use Gunicorn as the server.
     # todo: consider changing the populatedb function for the host to be correct, according to the address of the Django server.
     # todo: need to add CD pipelines to GitHub actions. Consider to do it directly to the Raspberry Pi.
 

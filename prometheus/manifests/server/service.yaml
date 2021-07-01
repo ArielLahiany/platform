@@ -7,7 +7,6 @@ metadata:
     app: prometheus
     component: server
 spec:
-  # todo: need to change to ClusterIP and to work with the ingress.
   type: NodePort
   selector:
     app: prometheus
@@ -17,3 +16,4 @@ spec:
       protocol: TCP
       port: 9090
       targetPort: 9090
+      nodePort: 30091

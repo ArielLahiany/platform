@@ -7,7 +7,6 @@ metadata:
     app: grafana
     component: server
 spec:
-  # todo: need to change to ClusterIP and work with ingress.
   type: NodePort
   selector:
     app: grafana
@@ -17,3 +16,4 @@ spec:
       protocol: TCP
       port: 3000
       targetPort: 3000
+      nodePort: 30092
