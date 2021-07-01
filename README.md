@@ -23,6 +23,11 @@ Table of Contents
 <a href="#stack">Stack</a>
 </b>
 </li>
+<li id="requirements">
+<b>
+<a href="#requirements">Requirements</a>
+</b>
+</li>
 <li id="installation">
 <b>
 <a href="#installation">Installation</a>
@@ -168,6 +173,12 @@ dashboards monitoring.
 </p>
 </li>
 </ul>
+</div>
+
+<div id="requirements">
+<h2>
+Requirements
+</h2>
 </div>
 
 <div id="installation">
@@ -360,8 +371,92 @@ Notification
 section of the pipeline file.
 </p>
 </li>
+<li id="applying">
+<b>
+Applying
+</b>
+<p>
+The project has two main entrypoints: Kustomization file, and Ansible playbooks. You may choose each one.
+</p>
+<ol>
+<li>
+<b>
+Kustomization:
+</b>
+In the root directory, run the following command in a terminal:
+
+```
+$ kubectl apply -k ./
+```
+</li>
+<li>
+<b>
+Ansible Playbooks:
+</b>
+Change directory to
+
+```
+/resoucres/playbooks/
+```
+
+and run the following command:
+
+```
+$ ansible-playbooks platform.yaml
+```
+
+</li>
+</ol>
+<p>
+Normal Django projects need to run migrations into the new database. For automation goals,
+this project include
+<b>
+init-containers
+</b>
+which does that, pre-launching the pods.
+</p>
+</li>
+<li id="populating">
+<b>
+Database Populating
+</b>
+<p>
+If you like to populate your database with pre-created data, and an example superuser:
+</p>
+<ol>
+<li>
+<b>
+Exec:
+</b>
+exec into your Django application pods.
+</li>
+<li>
+<b>
+Run:
+</b>
+the following command:
+</li>
+
+```
+$ python manage.py populatedb --createsuperuser
+```
+
+</ol>
+<p>The default credentials are:
+
+```
+admin@example.com
+```
+
+```
+admin
+```
+
+</p>
+</li>
 </ol>
 </div>
+
 <div id="tasks">
 <h2>
 Tasks
