@@ -199,8 +199,6 @@ Enter the relevant submodules directories, and then preform initial Commit and P
 $ git commit -m "Initial Commit"
 ```
 
-and
-
 ```
 $ git push origin master
 ```
@@ -233,8 +231,6 @@ By default the variables are called:
 DOCKERHUB_TOKEN
 ```            
 
-and
-
 ```
 DOCKERHUB_USERNAME
 ```
@@ -248,6 +244,76 @@ Configuration
 <p>
 The platform is using a couple of variables. For security and production reasons, please change them to your own. 
 </p>
+<ol>
+<li>
+<b>
+Mandatory
+</b>
+<ol>
+<li>
+<b>
+SECRET_KEY:
+</b>
+Uses for creation of hashes.
+<b>
+(Inside the secret.yaml file of the Saleor Core manifests).
+</b>
+</li>
+<li>
+<b>
+API_URL:
+</b>
+Defines URI of a running instance of the Saleor GraphQL API.
+<b>
+(Inside the Dockerfiles of the Storefront, and Dashboard applications).
+</b>
+</li>
+<li>
+<b>
+DASHBOARD_URL:
+</b>
+Default Saleor Dashboard URL.
+<b>
+(Inside the config.yaml file of the Saleor Core manifests)
+</b>
+</li>
+<li>
+<b>
+STOREFRONT_URL:
+</b>
+Default Saleor Storefront URL.
+<b>
+(Inside the config.yaml file of the Saleor Core manifests)
+</b>
+</li>
+<li>
+<b>
+Image:
+</b>
+Please change the image section of the deployment files to your own DockerHub repositories.
+<b>
+(Inside all the deployment files of the Saleor Core, Storefront and Dashboard applications).
+</b>
+</li>
+</ol>
+</li>
+<li>
+<b>
+Optional
+</b>
+<ol>
+<li>
+<b>
+api_url:
+</b>
+An webhook for Slack notifications.
+<b>
+(Inside the config.yaml file of the Prometheus Alertmanager manifests).
+</b>
+</li>
+</ol>
+</li>
+</ol>
 </li>
 <li id="building">
 <b>
